@@ -13,7 +13,7 @@ import mysql.connector
 # mydb = mysql.connector.connect(host="fbi-mysqllehre.th-brandenburg.de", user="abboudz", password="TfaePMQDEfD33RTc")
 
 couch = couchdb.Server('http://admin:admin@localhost:5984/')
-db = couch['design_data']
+db = couch['german_m_design_data']
 
 all_saved_user=[]
 for i in db :
@@ -32,7 +32,7 @@ all_coll = []
 all_fav = []
 url_list = []
 
-with open('Robot_maker.csv', newline='') as f:
+with open('german_maker_profiles.csv', newline='') as f:
     urls = csv.reader(f)
     for row in urls:
         url_list += row
@@ -169,7 +169,7 @@ for url in url_list:
             'Design_key':design_key, 'Design_name':design_name, 'Design_made_by':design_made_by, 'Design_created_at':design_created_at,
             'Design_summary':design_summary, 'Design_setting':design_setting, 'Design_tags':design_tags,
             'Design_img_url':design_img_url,
-            'design_Scraping date': str(datetime.date.today()), 'from_Group':'3D Printable Humanoid Robots'
+            'design_Scraping date': str(datetime.date.today()), 'from_Group':'German Makers'
         }
 
         db.save(myDict)
